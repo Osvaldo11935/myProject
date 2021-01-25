@@ -80,7 +80,7 @@
         public function Upload()
         {
             $response = array();
-            $upload_dir = '../uploads/';
+            $upload_dir = dirUPLOAD;
             $dados = $_FILES['imagem'];
             $rslt = null;
             //$countfiles = count($dados['name']);
@@ -99,7 +99,7 @@
                         "status" => "success",
                         "error" => false,
                         "message" => "Upload efectuado com success ",
-                        "url" => $upload_name
+                        "url" => str_replace("C:/wamp64/www/","http://localhost:8080/",$upload_name) 
                     );
                 } else {
                     $response = array(
@@ -112,7 +112,25 @@
             // }
             return $response;
         }
-
+        public function JoinTable($table,$func=null,$out=null)
+        {
+          $shema= self::ExecuteQuery("SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA = 'project' AND TABLE_NAME = '$table' AND REFERENCED_TABLE_NAME IS NOT NULL");
+          $result = self::showField($table);
+          foreach($result as $fields)
+          {
+            $_SESSION["fields"][]=$table . "." . $fields . " as ".$table."_". $fields;
+          }
+          $_SESSION["tables"][]=$table;
+          foreach($shema as $row)
+          {
+              $_SESSION["where"][]=$table.".".$row["COLUMN_NAME"]."=".$row["REFERENCED_TABLE_NAME"].".".$row["REFERENCED_COLUMN_NAME"];
+              self::JoinTable($row["REFERENCED_TABLE_NAME"],$func,$out);
+          }
+          $fields=implode(",",array_unique($_SESSION["fields"]));
+          $where=implode(" and ",array_unique($_SESSION["where"]));
+          $tables=implode(",",array_unique($_SESSION["tables"]));
+          return  $func!=null?self::ExecuteQuery("SELECT {$func} FROM {$tables} WHERE {$where} {$out}"):self::ExecuteQuery("SELECT {$fields} FROM {$tables} WHERE { $where}");
+        }
         //Metodo Responsavel Por Executar os Procedimento
         public function Procedure()
         {
@@ -201,20 +219,22 @@
 
             return $result;
         }
-        function allSelect()
+        function allSelect($func=null)
         {
-            $this->query = "SELECT*FROM $this->tabela";
+            $_func=$func==null?"*":$func;
+            $this->query = "SELECT  $_func FROM $this->tabela";
             $result = self::ExecuteQuery($this->query);
             return $result;
         }
-        function Select(array $dados)
+        function Select(array $dados,$func=null)
         {
+            $_func=$func==null?"*":$func;
             foreach ($dados as $ind => $val) {
                 $campos[] = " {$ind} like '%{$val}%' ";
             }
             $campos = implode('or', $campos);
 
-            $this->query = "SELECT*FROM $this->tabela where {$campos}";
+            $this->query = "SELECT  $_func FROM $this->tabela where {$campos}";
             $result = self::ExecuteQuery($this->query);
             return $result;
         }

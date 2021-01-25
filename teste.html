@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/Chart.min.js"></script>
+    <script src="js/Graphic.data.js"></script>
+    <script src="js/Chart.bundle.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body onload="graphic('pontoturistico')">
+    <div class="container">
+      <div class="row my-3">
+        <div class="col">
+          <h4>Bootstrap 4 Chart.js</h4>
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col-md-6 py-1">
+          <div class="card">
+            <div class="card-body">
+              <canvas id="chLine"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 py-1">
+          <div class="card">
+            <div class="card-body">
+              <canvas id="chBar"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row py-2">
+        <div class="col-md-4 py-1">
+          <div class="card">
+            <div class="card-body">
+              <canvas id="chDonut1"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 py-1">
+          <div class="card">
+            <div class="card-body">
+              <canvas id="chDonut2"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 py-1">
+            <div class="card">
+              <div class="card-body">
+                <canvas id="chartjs-5" class="chartjs" width="764" height="382" style="display: block; width: 382px; height: 191px;"></canvas>
+              </div>
+            </div>
+          </div>
+        <div class="col-md-4 py-1">
+          <div class="card">
+            <div class="card-body">
+              <canvas id="chDonut3"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
