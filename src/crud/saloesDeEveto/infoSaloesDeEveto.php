@@ -3,7 +3,7 @@ include_once(dirMANIPULACAO."/Manipulacao.php");
 $selectall = new Manipulacao();
 $id=explode("/",$_GET["url"]);
 $selectall->setTabela("saloesDeEveto");
-$result = $selectall->SelectJoin("   saloesDeEveto.idsaloesDeEveto={$id}");
+$result = $selectall->SelectJoin("   saloesDeEveto.idsaloesDeEveto={$id[1]}");
 $recount = $selectall->counts();
 $_SESSION["viewsaloesDeEveto"]!=0?$_SESSION["viewsaloesDeEveto"]:$_SESSION["viewsaloesDeEveto"]=0;
 $_SESSION["viewsaloesDeEveto"]=$_SESSION["viewsaloesDeEveto"]+1;
@@ -32,8 +32,8 @@ $_SESSION["viewsaloesDeEveto"]=$_SESSION["viewsaloesDeEveto"]+1;
                                 <li><strong>Full Localizacao</strong>: <?php echo $dados["nomeProvincia_provi"]; ?>,<?php echo $dados["nomeMunicipio_munic"]; ?> </li>
 
                                 <?php if ($_SESSION["logadoProvincia"] == false) { ?>
-                                    <a class="btn btn-warning" style="color:orage" href="../../formulario/saloesDeEveto/formupsaloesDeEveto.php?idsaloesDeEveto_saloesDeEveto=<?php echo $dados['idsaloesDeEveto_saloesDeE'] ?>">Editar</a>
-                                    <a class="btn btn-danger" style="color:red" href="removersaloesDeEveto.php?idsaloesDeEveto=<?php echo $dados['idsaloesDeEveto_saloesDeE'] ?>">Deletar</a>
+                                    <a class="btn btn-warning" style="color:orage" href="../formupsaloesDeEveto.php/<?php echo $dados['idsaloesDeEveto_saloesDeE'] ?>">Editar</a>
+                                    <a class="btn btn-danger" style="color:red" href="../removersaloesDeEveto/<?php echo $dados['idsaloesDeEveto_saloesDeE'] ?>">Deletar</a>
                                     </strong></li>
                                 <?php } ?>
 

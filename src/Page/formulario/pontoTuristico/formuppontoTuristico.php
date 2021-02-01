@@ -1,6 +1,6 @@
  <?php
  include_once(dirMANIPULACAO."/Manipulacao.php");
-  $idpontoTuristico = $_GET["idpontoTuristico_pontoTuristico"];
+  $idpontoTuristico = explode("/",$_GET["url"])[1];
   $selectone = new Manipulacao();
   $selectone->setTabela("pontoTuristico");
   $selectone->setValorNaTabela("idpontoTuristico");
@@ -23,7 +23,7 @@
                  <legend>...</legend>
                </h5>
                <div class="card-body">
-                 <form action="updatepontoTuristico" method="post" enctype="multipart/form-data">
+                 <form action="../updatepontoTuristico" method="post" enctype="multipart/form-data">
                    <fieldset>
 
                      <input type="hidden" name="idpontoTuristico" value="<?php echo $row['idpontoTuristico'] ?>">
@@ -37,9 +37,9 @@
                        <div class="col-md-12 mb-3">
                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="info" id="info" placeholder="Preencha este Campo com info"><?php echo $row["info"] ?></textarea>
                        </div><br>
-                       <div class="col-md-6 mb-3">
-                         <input class="form-control" type="hidden" required name="municipioid" id="municipioid" value="<?php echo $row["municipioid"] ?>" placeholder="Preencha este Campo com id">
-                       </div><br>
+                       <div class="col-md-12 mb-3">
+                      <select class="form-control" name="municipioid" onclick="refrech('Municipio','nomeMunicipio')" id="Municipio">
+                      </select> </div><br>
                      </div>
                      <button class="btn btn-primary btn-block">Enviar</button>
                    </fieldset>

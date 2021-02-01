@@ -29,8 +29,8 @@ $_SESSION["viewpontoTuristico"]=$_SESSION["viewpontoTuristico"]+1;
                                 <li><strong>Full Localizacao</strong>: <?php echo $dados["nomeProvincia_provi"]; ?>,<?php echo $dados["nomeMunicipio_munic"]; ?> </li>
                                 <?php if ($_SESSION["logadoProvincia"] == false) { ?>
                                     <li><strong>
-                                            <a class="btn btn-warning" style="color:orage" href="../../formulario/pontoTuristico/formuppontoTuristico.php?idpontoTuristico_pontoTuristico=<?php echo $dados['idpontoTuristico_pontoTuris'] ?>">Editar</a>
-                                            <a class="btn btn-danger" style="color:red" href="removerpontoTuristico.php?idpontoTuristico=<?php echo $dados['idpontoTuristico_pontoTuris'] ?>">Deletar</a>
+                                            <a class="btn btn-warning" style="color:orage" href="../formuppontoTuristico/<?php echo $dados['idpontoTuristico_pontoTuris'] ?>">Editar</a>
+                                            <a class="btn btn-danger" style="color:red" href="../removerpontoTuristico/<?php echo $dados['idpontoTuristico_pontoTuris'] ?>">Deletar</a>
                                         </strong></li>
                                 <?php } ?>
 

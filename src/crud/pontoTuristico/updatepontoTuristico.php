@@ -14,5 +14,5 @@
   $update->setTabela("pontoTuristico");
   $update->setValor("idpontoTuristico");
   $update->update($dados, $idpontoTuristico);
-  header('Location:selectonepontoTuristico');
+  header('Location:selectonepontoTuristico/');
   ?>

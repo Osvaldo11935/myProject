@@ -33,8 +33,8 @@ $_SESSION["viewhotel"]=$_SESSION["viewhotel"]+1;
 
                                 <?php if ($_SESSION["logadoProvincia"] == false) { ?>
                                     <li><strong>
-                                            <a class="btn btn-warning" style="color:orage" href="../../formulario/hotel/formuphotel.php?idhotel_hotel=<?php echo $dados['idhotel_h'] ?>">Editar</a>
-                                            <a class="btn btn-danger" style="color:red" href="removerhotel.php?idhotel=<?php echo $dados['idhotel_h'] ?>">Deletar</a>
+                                            <a class="btn btn-warning" style="color:orage" href="../formuphotel/<?php echo $dados['idhotel_h'] ?>">Editar</a>
+                                            <a class="btn btn-danger" style="color:red" href="../removerhotel/<?php echo $dados['idhotel_h'] ?>">Deletar</a>
                                         </strong></li>
                                 <?php } ?>
 

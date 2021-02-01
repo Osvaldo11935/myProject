@@ -3,17 +3,18 @@
      var fetchTable = document.getElementById(`${tabela}`);
      var i = 1;
      const requestata = {
-        action:"selectColumn",
+             action: "selectColumn",
              tabela: fetchTable.id,
              campo: cmp
          }
          //fetchTable.innerHTML = "";
-     var constuser = await fetch('src/Manipulacao/buscar.php', {
+     var constuser = await fetch('http://localhost:8080/myProject/src/Manipulacao/buscar.php', {
          method: 'post',
          body: JSON.stringify(requestata)
      }).then(response => {
-         if (!response.ok) { 
-             throw new Error("erro") }
+         if (!response.ok) {
+             throw new Error("erro")
+         }
          return response.json();
      }).then(responseData => {
          return responseData

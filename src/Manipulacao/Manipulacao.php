@@ -80,7 +80,7 @@
         public function Upload()
         {
             $response = array();
-            $upload_dir = dirUPLOAD;
+            $upload_dir = dirUPLOAD."/";
             $dados = $_FILES['imagem'];
             $rslt = null;
             //$countfiles = count($dados['name']);
@@ -250,8 +250,6 @@
                 return false;
             }
         }
-
-
         public function insert(array $dados)
         {
             foreach ($dados as $ind => $val) {

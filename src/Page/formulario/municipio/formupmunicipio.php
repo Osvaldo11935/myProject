@@ -1,6 +1,6 @@
  <?php
   include_once(dirMANIPULACAO."/Manipulacao.php");
-  $idmunicipio = $_GET["idmunicipio"];
+  $idmunicipio =  explode("/",$_GET["url"])[1];
   $selectone = new Manipulacao();
   $selectone->setTabela("municipio");
   $selectone->setValorNaTabela("idmunicipio");
@@ -24,7 +24,7 @@
                    <legend>...</legend>
                  </h5>
                  <div class="card-body">
-                   <form action="updatemunicipio" method="post">
+                   <form action="../updatemunicipio" method="post">
                      <fieldset>
 
                        <input type="hidden" name="idmunicipio" value="<?php echo $row['idmunicipio'] ?>">

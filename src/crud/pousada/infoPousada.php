@@ -3,7 +3,7 @@ include_once(dirMANIPULACAO."/Manipulacao.php");
 $selectall = new Manipulacao();
 $id=explode("/",$_GET["url"]);
 $selectall->setTabela("pousada");
-$result = $selectall->SelectJoin("   pousada.idpousada={$id}");
+$result = $selectall->SelectJoin("   pousada.idpousada={$id[1]}");
 $recount = $selectall->counts();
 $_SESSION["viewpousada"]!=0?$_SESSION["viewpousada"]:$_SESSION["viewpousada"]=0;
 $_SESSION["viewpousada"]=$_SESSION["viewpousada"]+1;
@@ -32,8 +32,8 @@ $_SESSION["viewpousada"]=$_SESSION["viewpousada"]+1;
                                 <li><strong>Full Localizacao</strong>: <?php echo $dados["nomeProvincia_provi"]; ?>,<?php echo $dados["nomeMunicipio_munic"]; ?> </li>
                                 <?php if ($_SESSION["logadoProvincia"] == false) { ?>
                                     <li><strong>
-                                            <a class="btn btn-warning" style="color:orage" href="../../formulario/pousada/formuppousada.php?idpousada_pousada=<?php echo $dados['idpousada_pou'] ?>">Editar</a>
-                                            <a class="btn btn-danger" style="color:red" href="removerpousada.php?idpousada=<?php echo $dados['idpousada_pou'] ?>">Deletar</a>
+                                            <a class="btn btn-warning" style="color:orage" href="../formuppousada/<?php echo $dados['idpousada_pou'] ?>">Editar</a>
+                                            <a class="btn btn-danger" style="color:red" href="../removerpousada/<?php echo $dados['idpousada_pou'] ?>">Deletar</a>
                                         </strong></li>
                                 <?php } ?>
 

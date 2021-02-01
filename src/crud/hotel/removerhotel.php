@@ -7,4 +7,4 @@ $remover->setValorNaTabela("idhotel");
 $remover->setValorPesquisa("$idhotel");
 $remover->Remover();
 $_SESSION['msg'] = $remover->getMsg();
-header('Location:selectallhotel');
+header('Location:selectallhotel/');

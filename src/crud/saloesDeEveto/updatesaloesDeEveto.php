@@ -14,5 +14,5 @@
   $update->setTabela("saloesDeEveto");
   $update->setValor("idsaloesDeEveto");
   $update->update($dados, $idsaloesDeEveto);
-  header('Location:selectonesaloesDeEveto');
+  header('Location:selectonesaloesDeEveto/');
   ?>

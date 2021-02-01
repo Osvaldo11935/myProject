@@ -10,5 +10,5 @@
   $update->setTabela("municipio");
   $update->setValor("idmunicipio");
   $update->update($dados, $idmunicipio);
-  header('Location:selectonemunicipio');
+  header('Location:selectonemunicipio/');
   ?>

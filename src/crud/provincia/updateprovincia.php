@@ -10,5 +10,5 @@ $dados = array(
 $update->setTabela("provincia");
 $update->setValor("idprovincia");
 $update->update($dados,$idprovincia);
- header('Location:selectoneprovincia');
+ header('Location:selectoneprovincia/');
 ?>

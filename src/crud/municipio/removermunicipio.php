@@ -7,5 +7,5 @@
  $remover->setValorPesquisa("$idmunicipio");
  $remover->Remover();
  $_SESSION['msg']=$remover->getMsg();
- header('Location:selectallmunicipio');
+ header('Location:selectallmunicipio/');
 ?>
